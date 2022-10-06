@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../js/vue.js"></script>
+  <style>
+    .box,
+    .box2 {
+      width: 200px;
+      height: 200px;
+      background-color: red;
+      margin-bottom: 30px;
+    }
+
+    .box2 {
+      background-color: blue;
+    }
+  </style>
+</head>
+
+
+<body>
+
+  <div id="app">
+    <div class="box" v-if="flage"></div>
+    <div class="box2" v-show="flage"></div>
+
+
+
+
+    <h3>当前的分数为:
+      <p v-if="score >= 90">A</p>
+      <p v-else-if="score >= 80">B</p>
+      <p v-else-if="score>=60">C</p>
+      <P v-else>D</P>
+    </h3>
+
+    <p v-if="carList.length!==0">{{carList}}</p>
+    <p v-else>购物车空空如也,快去购物吧</p>
+
+
+    <ul v-if="isshow">
+      <li>我是第1个li</li>
+      <li>我是第2个li</li>
+      <li>我是第3个li</li>
+      <li>我是第4个li</li>
+      <li>我是第5个li</li>
+    </ul>
+
+
+    <div>
+      <input type="text" v-if="isshow">
+      <p v-else>{{msg}}</p>
+    </div>
+
+
+
+
+  </div>
+
+
+
+
+
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data () {
+        return {
+          carList: [{
+            id: 12334,
+            name: '哈根达斯',
+            price: '¥98'
+          }],
+          flage: true,
+          score: 7,
+          isshow: false,
+          msg: '州茅台酒 飞天茅台 酱香型白酒 53度 茅台'
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
